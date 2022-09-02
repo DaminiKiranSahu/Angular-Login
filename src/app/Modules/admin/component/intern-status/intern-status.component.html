@@ -1,0 +1,108 @@
+<div class="Container m-5">
+  <table class="table table-hover my-3">
+    <thead>
+      <tr class="table-primary">
+        <th>Status Id</th>
+        <th>Intern Id</th>
+        <th>Intern Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr></tr>
+      <tr *ngFor="let item of Status">
+        <td>{{ item.statusId }}</td>
+        <td>{{ item.internId }}</td>
+        <td>{{ item.internStatus }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleterecord(item)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="text-center">
+  <button
+    class="btn btn-success"
+    (click)="Add()"
+    type="button"
+    data-toggle="modal"
+    data-target="#exampleModalLong"
+  >
+    ADD Intern Status
+  </button>
+</div>
+<div
+  class="modal fade"
+  id="exampleModalLong"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add Stuats</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #myForm="ngForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Intern Id</label>
+            <input
+              type="text"
+              name="internId"
+              [(ngModel)]="internId"
+              class="form-control"
+              id="internId"
+              aria-describedby="emailHelp"
+              placeholder="Enter Phone No"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Intern Status</label>
+            <select
+              name="internStatus"
+              [(ngModel)]="internStatus"
+              class="form-control"
+              id="internStatus"
+              placeholder="Gender"
+            >
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary col-xs-3"
+          data-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          (click)="submit(myForm.value)"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

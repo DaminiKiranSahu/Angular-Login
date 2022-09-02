@@ -1,0 +1,331 @@
+<div class="Container m-5">
+  <table class="table table-hover my-3">
+    <thead>
+      <tr class="table-primary">
+        <th>Intern Id</th>
+        <th>Intern Name</th>
+        <th>Phone No</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Company Working Hour</th>
+        <th>Intern Working Hour</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr></tr>
+      <tr *ngFor="let item of record">
+        <td>{{ item.internId }}</td>
+        <td>{{ item.internName }}</td>
+        <td>{{ item.phoneNo }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.gender }}</td>
+        <td>{{ item.address }}</td>
+        <td>{{ item.company_Working_Hour }}</td>
+        <td>{{ item.intern_Working_Hour }}</td>
+        <td>
+          <button
+            class="btn btn-info me-2"
+            data-toggle="modal"
+            data-target="#edit"
+            (click)="onedit(item)"
+          >
+            Edit
+          </button>
+          ||
+          <button class="btn btn-danger" (click)="deleterecord(item)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="text-center">
+  <button
+    class="btn btn-success"
+    (click)="Add()"
+    type="button"
+    data-toggle="modal"
+    data-target="#exampleModalLong"
+  >
+    ADD Interns
+  </button>
+</div>
+<div
+  class="modal fade"
+  id="exampleModalLong"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #myForm="ngForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Intern Name</label>
+            <input
+              type="text"
+              name="internName"
+              [(ngModel)]="internName"
+              class="form-control"
+              id="internName"
+              aria-describedby="emailHelp"
+              placeholder="Enter Phone No"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Phone No</label>
+            <input
+              type="text"
+              name="phoneNo"
+              [(ngModel)]="phoneNo"
+              class="form-control"
+              id="phone"
+              aria-describedby="emailHelp"
+              placeholder="Enter Phone No"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input
+              type="email"
+              name="email"
+              [(ngModel)]="email"
+              class="form-control"
+              id="email"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">Gender</label>
+            <!-- <input
+              type="text"
+              name="gender"
+              ngModel
+              #gender="ngModel"
+              class="form-control"
+              id="gender"
+              placeholder="Gender"
+            /> -->
+            <select
+              name="gender"
+              [(ngModel)]="gender"
+              class="form-control"
+              id="gender"
+              placeholder="Gender"
+            >
+              <option value="male">male</option>
+              <option value="female">female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Address</label>
+            <input
+              type="text"
+              name="address"
+              [(ngModel)]="address"
+              class="form-control"
+              id="address"
+              placeholder="Address"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Company Working Hour</label>
+            <input
+              type="text"
+              name="company_Working_Hour"
+              [(ngModel)]="company_Working_Hour"
+              class="form-control"
+              id="address"
+              placeholder="Address"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Intern Working Hour</label>
+            <input
+              type="text"
+              name="intern_Working_Hour"
+              [(ngModel)]="intern_Working_Hour"
+              class="form-control"
+              id="address"
+              placeholder="Address"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary col-xs-3"
+          data-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          (click)="submit(myForm.value)"
+        >
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="edit"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Update Intern Details
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #myForm="ngForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Intern Id</label>
+            <input
+              type="text"
+              disabled
+              name="internId"
+              [(ngModel)]="internId"
+              class="form-control"
+              id="internName"
+              aria-describedby="emailHelp"
+              placeholder="Enter Phone No"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Intern Name</label>
+            <input
+              type="text"
+              name="internName"
+              [(ngModel)]="internName"
+              class="form-control"
+              id="internName"
+              aria-describedby="emailHelp"
+              placeholder="Enter Phone No"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Phone No</label>
+            <input
+              type="text"
+              name="phoneNo"
+              [(ngModel)]="phoneNo"
+              class="form-control"
+              id="phone"
+              aria-describedby="emailHelp"
+              placeholder="Enter Phone No"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input
+              type="email"
+              name="email"
+              [(ngModel)]="email"
+              class="form-control"
+              id="email"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">Gender</label>
+            <input
+              type="text"
+              name="gender"
+              [(ngModel)]="gender"
+              class="form-control"
+              id="gender"
+              placeholder="Gender"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Address</label>
+            <input
+              type="text"
+              name="address"
+              [(ngModel)]="address"
+              class="form-control"
+              id="address"
+              placeholder="Address"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Company Working Hour</label>
+            <input
+              type="text"
+              name="company_Working_Hour"
+              [(ngModel)]="company_Working_Hour"
+              class="form-control"
+              id="address"
+              placeholder="Address"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Intern Working Hour</label>
+            <input
+              type="text"
+              name="intern_Working_Hour"
+              [(ngModel)]="intern_Working_Hour"
+              class="form-control"
+              id="address"
+              placeholder="Address"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          (click)="update()"
+        >
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

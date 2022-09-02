@@ -1,0 +1,212 @@
+<div class="Container m-5">
+  <table class="table table-hover my-3">
+    <thead>
+      <tr class="table-primary">
+        <th>S.NO</th>
+        <th>Designation Id</th>
+        <th>Designation Name</th>
+        <th>Department Name</th>
+        <th>Role Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr></tr>
+      <tr *ngFor="let item of desi; let j = index">
+        <td>{{ j + 1 }}</td>
+        <td>{{ item.designationId }}</td>
+        <td>{{ item.designationName }}</td>
+        <td>{{ item.departmentName }}</td>
+        <td>{{ item.roleName }}</td>
+
+        <td>
+          <button
+            class="btn btn-info me-2"
+            data-toggle="modal"
+            data-target="#edit"
+            (click)="onedit(item)"
+          >
+            Edit
+          </button>
+          ||
+          <button class="btn btn-danger" (click)="deleterecord(item)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="text-center">
+  <button
+    class="btn btn-success"
+    (click)="Add()"
+    type="button"
+    data-toggle="modal"
+    data-target="#exampleModalLong"
+  >
+    ADD Designations
+  </button>
+</div>
+<div
+  class="modal fade"
+  id="exampleModalLong"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #myForm="ngForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Designation Name</label>
+            <input
+              type="text"
+              name="designationName"
+              [(ngModel)]="designationName"
+              class="form-control"
+              id="designationName"
+              aria-describedby="emailHelp"
+              placeholder="Enter designation Name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Department Name</label>
+            <input
+              type="text"
+              name="departmentName"
+              [(ngModel)]="departmentName"
+              class="form-control"
+              id="departmentName"
+              aria-describedby="emailHelp"
+              placeholder="Enter department Name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">role Name</label>
+            <input
+              type="text"
+              name="roleName"
+              [(ngModel)]="roleName"
+              class="form-control"
+              id="roleName"
+              aria-describedby="emailHelp"
+              placeholder="Enter role Name"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary col-xs-3"
+          data-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          (click)="submit(myForm.value)"
+        >
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="edit"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Update Intern Details
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #myForm="ngForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">designation Name</label>
+            <input
+              type="text"
+              name="designationName"
+              [(ngModel)]="designationName"
+              class="form-control"
+              id="designationName"
+              aria-describedby="emailHelp"
+              placeholder="Enter designationName"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">department Name</label>
+            <input
+              type="text"
+              name="departmentName"
+              [(ngModel)]="departmentName"
+              class="form-control"
+              id="departmentName"
+              aria-describedby="emailHelp"
+              placeholder="Enter department Name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">role Name</label>
+            <input
+              type="text"
+              name="roleName"
+              [(ngModel)]="roleName"
+              class="form-control"
+              id="roleName"
+              aria-describedby="emailHelp"
+              placeholder="Enter role Name"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          (click)="update()"
+        >
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

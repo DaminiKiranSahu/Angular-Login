@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(102, 163, 163); color: white;">
+  <div class="container">
+      <a class="navbar-brand" href="#" >Intern Managmant System
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item" routerLinkActive="active">
+                  <a class="nav-link" routerLink="./home">Home
+                      <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                  <a class="nav-link" routerLink="./about">About</a>
+              <li>
+                <div class="dropdown px-2 ">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Interns Details
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" routerLink="./intern">Interns Records</a>
+                    <a class="dropdown-item" routerLink="./designation">Designation Details</a>
+                    <a class="dropdown-item" [routerLink]="['./leave']">Leaves</a>
+                    <a class="dropdown-item" [routerLink]="['./working']">Working Hours</a>
+                    <a class="dropdown-item" [routerLink]="['./status']">Interns Staus</a>
+                  </div>
+                </div>
+              </li>
+              <li class="search px-3">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              </li>
+              <li class="btn btn-danger text-white" role="button">
+                  <a class="nav-link text-white" (click)="logout()">logout</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+
+<!-- <select>
+  <option value="january">january</option>
+  <option value="feb">f</option>
+</select> -->

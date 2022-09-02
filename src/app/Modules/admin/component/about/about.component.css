@@ -1,0 +1,12 @@
+a.btn{
+  width: 200px;
+    height: 40px;
+    background: #830051;
+    color: #fff;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 40px;
+    text-decoration: none;
+    font-size: 20px;
+}

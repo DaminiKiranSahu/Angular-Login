@@ -1,0 +1,10 @@
+.bg-danger{
+  /* background-color: #b3d7ff!important; */
+  background-image: url('../../../assets/login.jfif');
+  width:1000px;
+  height: 1000px;
+}
+.container{
+  width: 100%;
+
+}

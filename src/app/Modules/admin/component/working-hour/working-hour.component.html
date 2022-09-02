@@ -1,0 +1,76 @@
+<div class="Container m-5">
+  <table class="table table-hover my-3" >
+    <thead><tr class="table-primary ">
+      <th>working Id</th>
+      <th>company Monthly Working Hour</th>
+      <th>intern Monthly Working Hour</th>
+
+      <th>Action</th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr>
+       <tr *ngFor="let item of work ">
+      <td>{{item.workingId}}</td>
+      <td>{{item.company_Monthly_Working_Hour}}</td>
+      <td>{{item.intern_Monthly_Working_Hour}}</td>
+
+
+      <td>
+        <button class="btn btn-info me-2">Edit</button>
+        <button class="btn btn-danger" >Delete</button>
+
+      </td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+<div class='text-center' >
+  <!-- (click)="open(content)" -->
+  <button class= "btn btn-success "
+  type="button" data-toggle="modal" data-target="#exampleModalLong">
+ Add Working Hour
+</button>
+</div>
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">working hours </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- [formGroup]= "formValue" -->
+        <form >
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">working Id</label>
+            <input type="number" formControlName="designationId" class="form-control" id="designationId" aria-describedby="emailHelp" placeholder="Designation Id">
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Company Monthly Working Hour</label>
+            <input type="text" formControlName="designationName" class="form-control" id="designationName" aria-describedby="emailHelp" placeholder="Designation Name">
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Intern Monthly Working Hour</label>
+            <input type="text" formControlName="departmentName" class="form-control" id="departmentName" aria-describedby="emailHelp" placeholder="Department Name">
+          </div>
+        </form>
+      </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+
+
+

@@ -1,0 +1,150 @@
+<div class="Container m-5">
+  <table class="table table-hover my-3">
+    <thead>
+      <tr class="table-primary">
+        <th>S.NO</th>
+        <th>Leave Id</th>
+        <th>Intern Id</th>
+        <th>Leave Type</th>
+        <th>Leave Reson</th>
+        <th>Leave Days</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr></tr>
+      <tr *ngFor="let item of leave; let j = index">
+        <td>{{ j + 1 }}</td>
+        <td>{{ item.leaveId }}</td>
+        <td>{{ item.internId }}</td>
+        <td>{{ item.leaveType }}</td>
+        <td>{{ item.leaveReson }}</td>
+        <td>{{item.leavedays}}</td>
+
+        <td>
+          <!-- <button class="btn btn-outline-info col md-1">Edit</button> -->
+          <button class="btn btn-danger" (click)="deleterecord(item)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="text-center">
+  <!-- (click)="open(content)" -->
+  <button
+    class="btn btn-success"
+    type="button"
+    data-toggle="modal"
+    data-target="#exampleModalLong"
+  >
+    Apply for Leave
+  </button>
+</div>
+<!-- Button trigger modal
+<--Modal -->
+
+<div
+  class="modal fade"
+  id="exampleModalLong"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Apply Leave</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #myForm="ngForm">
+          <div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Intern Id </label>
+              <input
+                type="number"
+                name="internId"
+                style="inline-size: 50%"
+                ngModel
+                #internId="ngModel"
+                class="form-control"
+                id="internId"
+                aria-describedby="emailHelp"
+                placeholder="Enter Intern Id"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Leave Type</label>
+             <!-- <input
+                type="text"
+                name="leaveType"
+                style="inline-size: 60%"
+                ngModel
+                #leaveType="ngModel"
+                class="form-control"
+                id="leaveType"
+                aria-describedby="emailHelp"
+                placeholder="Enter leave Type "
+              /> -->
+              <select   name="leaveType"
+              sty le="inline-size: 60%;"
+              ngModel
+              #leaveType="ngModel"
+              class="form-control"
+              id="leave type"
+              placeholder="Leave Type">
+                <option value="Paid">Paid</option>
+                <option value="Unpaid">Unpaid</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Leave Reson</label>
+              <input
+                type="text"
+                name="leaveReson"
+                style="inline-size: 250%;
+                width: 400px;
+                height: 150px;"
+                ngModel
+                #leaveReson="ngModel"
+                class="form-control"
+                id="leaveReson"
+                aria-describedby="emailHelp"
+                placeholder="Enter Leave Reson"
+              />
+
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                data-dismiss="modal"
+                (click)="submit(myForm.value)"
+              >
+                Save changes
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
